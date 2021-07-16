@@ -30,3 +30,8 @@ export default function initFirebase() {
 		console.log("Firebase was successfully init.");
 	}
 }
+
+export const loginWithGitHub = () => {
+	const githubProvider = new firebase.auth.GithubAuthProvider();
+	return firebase.auth().signInWithPopup(githubProvider);
+};
