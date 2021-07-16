@@ -4,6 +4,8 @@ import store from "../redux/store";
 import { Provider } from "react-redux";
 import initFirebase from "../firebase/initFirebase";
 import { useEffect } from "react";
+import Navbar from "../components/Navbar";
+import theme from "../utils/theme";
 
 function MyApp({ Component, pageProps }) {
 	useEffect(() => {
@@ -11,7 +13,8 @@ function MyApp({ Component, pageProps }) {
 	}, []);
 	return (
 		<Provider store={store}>
-			<ChakraProvider>
+			<ChakraProvider theme={theme}>
+				<Navbar />
 				<Container maxW="container.xl">
 					<Component {...pageProps} />
 				</Container>
