@@ -174,11 +174,29 @@ const DesktopSubNav = ({ label, href, subLabel }) => {
 };
 
 const MobileNav = () => {
+	const dispatch = useDispatch();
+	const isLogged = useSelector(state => state.auth.isSuccess);
+
 	return (
 		<Stack
 			bg={useColorModeValue("white", "gray.800")}
 			p={4}
 			display={{ md: "none" }}>
+			{!isLogged && (
+				<Button
+					leftIcon={<AiFillGithub />}
+					fontSize="sm"
+					fontWeight={600}
+					color="white"
+					bg="github"
+					onClick={() => dispatch(login())}
+					_hover={{
+						boxShadow: "md",
+					}}>
+					Sign in
+				</Button>
+			)}
+
 			{NAV_ITEMS.map(navItem => (
 				<MobileNavItem key={navItem.label} {...navItem} />
 			))}
