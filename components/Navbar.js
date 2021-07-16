@@ -57,7 +57,6 @@ export default function Navbar() {
 						<Button
 							display={{ md: "flex", base: "none" }}
 							leftIcon={<AiFillGithub />}
-							display="inline-flex"
 							fontSize="sm"
 							fontWeight={600}
 							color="white"
