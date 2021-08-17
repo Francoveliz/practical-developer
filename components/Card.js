@@ -6,7 +6,7 @@ const Card = ({ title, id }) => {
 	return (
 		<Box>
 			<h1>{title}</h1>
-			<Link href={`/challenges/${id}`}>
+			<Link href={`/challenges/${id}`} passHref>
 				<Button colorScheme="blue">details</Button>
 			</Link>
 		</Box>
