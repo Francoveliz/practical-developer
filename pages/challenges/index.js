@@ -3,7 +3,7 @@ import axios from "axios";
 import Card from "../../components/Card";
 import { SimpleGrid } from "@chakra-ui/layout";
 
-const Challenges = ({ challenges }) => {
+const Challenges = ({ challenges = [] }) => {
 	return (
 		<>
 			<SimpleGrid columns={4} spacing={6}>
