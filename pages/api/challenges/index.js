@@ -6,7 +6,10 @@ const challenges = async (req, res) => {
 	try {
 		if (req.method === "GET") {
 			const snapshot = await db.collection("challenges").get();
-			const data = await snapshot.docs.map(doc => doc.data());
+			const data = await snapshot.docs.map(doc => ({
+				id: doc.id,
+				...doc.data(),
+			}));
 			res.status(200).json(data);
 		}
 		res.status(200).end();

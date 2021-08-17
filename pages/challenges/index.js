@@ -1,16 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import axios from "axios";
+import Card from "../../components/Card";
+import { SimpleGrid } from "@chakra-ui/layout";
 
 const Challenges = ({ challenges }) => {
-	console.log(challenges);
 	return (
-		<div>
-			{challenges.map(challenge => (
-				<div key={challenge}>
-					<h1>{challenge.title}</h1>
-				</div>
-			))}
-		</div>
+		<>
+			<SimpleGrid columns={4} spacing={6}>
+				{challenges.map(challenge => (
+					<Card key={challenge.id} {...challenge} />
+				))}
+			</SimpleGrid>
+		</>
 	);
 };
 
