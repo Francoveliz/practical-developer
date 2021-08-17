@@ -16,22 +16,16 @@ const clientCredentials = {
 	appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
 };
 
-export default function initFirebase() {
-	if (!firebase.apps.length) {
-		firebase.initializeApp(clientCredentials);
-		// Check that `window` is in scope for the analytics module!
-		if (typeof window !== "undefined") {
-			// Enable analytics. https://firebase.google.com/docs/analytics/get-started
-			if ("measurementId" in clientCredentials) {
-				firebase.analytics();
-				firebase.performance();
-			}
-		}
-		console.log("Firebase was successfully init.");
-	}
+// Initialize Firebase
+
+if (!firebase.apps.length) {
+	firebase.initializeApp(clientCredentials);
+	console.log("Firebase was successfully init.");
 }
 
 export const loginWithGitHub = () => {
 	const githubProvider = new firebase.auth.GithubAuthProvider();
 	return firebase.auth().signInWithPopup(githubProvider);
 };
+
+export default firebase;

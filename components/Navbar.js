@@ -17,6 +17,8 @@ import {
 	useDisclosure,
 	Container,
 } from "@chakra-ui/react";
+import NextLink from "next/link";
+
 import {
 	HamburgerIcon,
 	CloseIcon,
@@ -103,18 +105,19 @@ const DesktopNav = () => {
 				<Box key={navItem.label}>
 					<Popover trigger={"hover"} placement={"bottom-start"}>
 						<PopoverTrigger>
-							<Link
-								p={2}
-								href={navItem.href ?? "#"}
-								fontSize={"sm"}
-								fontWeight={500}
-								color={linkColor}
-								_hover={{
-									textDecoration: "none",
-									color: linkHoverColor,
-								}}>
-								{navItem.label}
-							</Link>
+							<NextLink href={navItem.href ?? "#"}>
+								<Link
+									p={2}
+									fontSize={"sm"}
+									fontWeight={500}
+									color={linkColor}
+									_hover={{
+										textDecoration: "none",
+										color: linkHoverColor,
+									}}>
+									{navItem.label}
+								</Link>
+							</NextLink>
 						</PopoverTrigger>
 
 						{navItem.children && (
@@ -274,11 +277,11 @@ const NAV_ITEMS = [
 	// 	],
 	// },
 	{
-		label: "Learn Design",
-		href: "#",
+		label: "crear challenge",
+		href: "/challenges/new",
 	},
 	{
-		label: "Hire Designers",
-		href: "#",
+		label: "Challenges",
+		href: "/challenges",
 	},
 ];

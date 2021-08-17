@@ -8,9 +8,9 @@ import Navbar from "../components/Navbar";
 import theme from "../utils/theme";
 
 function MyApp({ Component, pageProps }) {
-	useEffect(() => {
-		initFirebase();
-	}, []);
+	// useEffect(() => {
+	// 	initFirebase();
+	// }, []);
 	return (
 		<Provider store={store}>
 			<ChakraProvider theme={theme}>
